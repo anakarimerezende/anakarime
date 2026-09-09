@@ -7,10 +7,16 @@
 }
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
 }
 
 p {
@@ -23,10 +29,11 @@ p {
 .menu{
     background-color: #f6f4e6;
     padding: 30px;
+    position: relative;
 }
 
 .navMenu {
-    
+
   position: absolute;
 
   top: 20px;
@@ -35,7 +42,7 @@ p {
   display: flex;
   gap: 40px;
 
-  
+
 }
 
 .navMenu a {
@@ -47,6 +54,36 @@ p {
   font-weight: 200;
 
   transition: 0.2s;
+  white-space: nowrap;
+}
+
+@media screen and (max-width: 900px) {
+  .menu {
+    padding: 16px;
+    text-align: center;
+  }
+
+  .navMenu {
+    position: static;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 12px;
+    column-gap: 20px;
+  }
+
+  .navMenu .dot {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navMenu {
+    column-gap: 14px;
+  }
+
+  .navMenu a {
+    font-size: 12px;
+  }
 }
 
 .navMenu a:hover {
@@ -113,21 +150,21 @@ p {
     background-position: center;
 
     min-height: 100vh;
- 
+
   font-family: "Montserrat", sans-serif;
   color: #f6f4e6;
-  padding: 100px;
+  padding: clamp(40px, 10vw, 100px) clamp(20px, 8vw, 100px);
   justify-content: center;
   align-items: center;
 
  h1 {
-  font-size: 48px;
+  font-size: clamp(28px, 6vw, 48px);
   font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
   }
   p{
-    font-size: 18px;
+    font-size: clamp(15px, 3vw, 18px);
     font-weight: 400px;
     text-align: center;}
   }
@@ -141,19 +178,25 @@ p {
   background: #1c0124;
   font-family: "Montserrat", sans-serif;
   color: #f6f4e6;
-  padding: 100px;
+  padding: clamp(40px, 10vw, 100px) clamp(20px, 8vw, 100px);
   justify-content: center;
   align-items: center;
-  display: inline-block;
+  display: block;
 }
 .sobre h2 {
     color: #630077;}
 
-.titulooo{font-size: 24px;
+.titulooo{font-size: clamp(18px, 4vw, 24px);
     font-weight: 500;
     margin-bottom: 5px;
     text-align: center;
     padding-right: 33%;}
+
+@media screen and (max-width: 768px) {
+  .titulooo {
+    padding-right: 0;
+  }
+}
 
 .tituloooo{
   font-size: 24px;
@@ -164,16 +207,16 @@ p {
 
 
 .texto1{
-  
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  font-size: 22px;
+  font-size: clamp(16px, 2.5vw, 22px);
   text-align: justify;
   padding: 30px 0;
 }
-.texto1 > p, 
+.texto1 > p,
 .texto1 > div:not(img) {
   flex: 2;
   padding: 0 20px; /* Dá um respiro interno para o texto não colar direto na tela */
@@ -181,16 +224,28 @@ p {
 
 .texto1 img{
    width: 250px; /* Aumentei um pouco, ajuste conforme desejar */
+  max-width: 60%;
   height: auto;
   border-radius: 30px;
   flex: 1;
   object-fit: cover;
-    
+
 }
 
 @media screen and (max-width: 768px) {
   .texto1 {
     flex-direction: column-reverse;
+    gap: 24px;
+  }
+
+  .texto1 > p,
+  .texto1 > div:not(img) {
+    padding: 0;
+  }
+
+  .texto1 img{
+    width: 220px;
+    max-width: 70%;
   }
 }
 
@@ -227,31 +282,31 @@ p {
     background: #420042;
     font-family: "Montserrat", sans-serif;
     color: #f6f4e6;
-    padding: 100px;
+    padding: clamp(40px, 10vw, 100px) clamp(20px, 8vw, 100px);
     justify-content: center;
     align-items: center;
     display: block;
 
     h2{
-        font-size: 40px;
+        font-size: clamp(26px, 6vw, 40px);
         font-weight: 500;
         margin-bottom: 5px;
         text-align: center;
         padding: 20px;
     }
     h3{
-        font-size: 30px;
+        font-size: clamp(20px, 5vw, 30px);
         font-weight: 500;
         margin-bottom: 5px;
         text-align: center;
         padding: 20px;
     }
     p{
-        font-size: 22px;
+        font-size: clamp(16px, 3vw, 22px);
         font-weight: 400px;
         text-align: justify ;
         margin-top: 20px;
-        padding: 40px;
+        padding: clamp(16px, 4vw, 40px);
     }
 }
 
@@ -309,23 +364,23 @@ p {
 } */
 
 .estrelaspmg{
-    
+
     background: #440d38;
     font-family: "Montserrat", sans-serif;
     color: #f6f4e6;
-    padding: 100px;
+    padding: clamp(40px, 10vw, 100px) clamp(20px, 8vw, 100px);
     justify-content: center;
     align-items: center;
 
     h3{
-        font-size: 40px;
+        font-size: clamp(26px, 6vw, 40px);
         font-weight: 500;
         margin-bottom: 5px;
         text-align: center;
         padding: 20px;
     }
     h4{
-        font-size: 30px;
+        font-size: clamp(20px, 5vw, 30px);
         font-weight: 500;
         margin-bottom: 5px;
         text-align: center;
@@ -334,9 +389,9 @@ p {
     p{
         font-size: 16px;
         text-align: justify ;
-        padding: 40px;
+        padding: clamp(16px, 4vw, 40px);
     }
-    
+
 }
 
 .carrossel{
@@ -360,7 +415,7 @@ p {
 
 .slide img{
    width: 100%;
-  height: 400px;        /* Reduzi um pouco para telas médias, ou use 'height: auto;' se preferir manter a proporção original da foto */
+  height: clamp(220px, 60vw, 400px);        /* Reduzi um pouco para telas médias, ou use 'height: auto;' se preferir manter a proporção original da foto */
   object-fit: cover;
   display: block;
 }
@@ -400,24 +455,24 @@ p {
     background: #000000;
     font-family: "Montserrat", sans-serif;
     color: #f6f4e6;
-    padding: 100px;
+    padding: clamp(40px, 10vw, 100px) clamp(20px, 8vw, 100px);
     justify-content: center;
     align-items: center;
     display: block;
 
     h2{
-        font-size: 40px;
+        font-size: clamp(26px, 6vw, 40px);
         font-weight: 500;
         margin-bottom: 5px;
         text-align: center;
         padding: 20px;
     }
     p{
-        font-size: 22px;
+        font-size: clamp(16px, 3vw, 22px);
         font-weight: 400px;
         text-align: justify ;
         margin-top: 20px;
-        padding: 40px;
+        padding: clamp(16px, 4vw, 40px);
     }
 }
 
@@ -430,7 +485,8 @@ p {
 }
 
 .lado{
-    width:400px;
+    width:100%;
+    max-width:400px;
     display:flex;
     flex-direction:column;
     align-items:center;
